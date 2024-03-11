@@ -9,15 +9,18 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 from pathlib import Path
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Конфигурация сервера электронной почты
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gn9377419582@gmail.com'
-EMAIL_HOST_PASSWORD = 'rwhy xrrd hxrb ymhv'
+EMAIL_HOST = str(os.getenv("EMAIL_HOST"))
+EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -29,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*+c4w_!&mga2#q7kujc3zvx+bydn7%cm7^(6ncgjlk)*lu29g^'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
