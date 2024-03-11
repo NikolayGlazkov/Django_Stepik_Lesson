@@ -2,3 +2,5 @@
 *.html
 __pycache__
 .venv
+config.py
+.env
